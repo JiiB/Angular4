@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
 export class OtherComponent {
 
   aString = "Ich bin ein String";
-  aNumber = 123;
+  aNumber = 999;
   attachClass = false;
 
   constructor() {
