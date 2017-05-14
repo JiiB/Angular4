@@ -1,0 +1,21 @@
+<h1>String Interpolation</h1>
+{{ aString }}
+<br/>
+{{ aNumber }}
+<hr>
+<h1>Property Binding</h1>
+
+<p [innerText]="aString"></p>
+<div>
+    <input type="text" [value]="aNumber">
+</div>
+<div [ngClass]="{'red-border': attachClass}">
+    Text
+</div>
+
+<app-proberty-binding [nameData]="'Max'"></app-proberty-binding>
+<hr>
+<h2>Event Binding</h2>
+<button (click)="onClick($event)">Klick mich!</button>
+
+<app-event-binding (clicked)="aString = $event"></app-event-binding>
