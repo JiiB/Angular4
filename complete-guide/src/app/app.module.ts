@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { OtherComponent } from './other/other.component';
 import { ProbertyBindingComponent } from './other/proberty-binding.component';
 import { EventBindingComponent } from './other/event-binding.component';
+import { LifecycleComponent } from './lifecycle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OtherComponent,
     ProbertyBindingComponent,
-    EventBindingComponent
+    EventBindingComponent,
+    LifecycleComponent
   ],
   imports: [
     BrowserModule,

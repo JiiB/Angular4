@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   <h1>Inline Template</h1>
   <hr>
   <app-other></app-other>
+  <app-lifecycle></app-lifecycle>
   `,
   styles: [`
 
