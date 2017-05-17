@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-other',
@@ -15,11 +15,14 @@ export class OtherComponent {
   aString = "Ich bin ein String";
   aNumber = 999;
   attachClass = false;
+  @ViewChild('input') input: ElementRef;
+
 
   constructor() {
     setTimeout(() => {
       this.aNumber += 1;
       this.attachClass = true;
+      this.input.nativeElement.value = "hallo";
     }, 2000);
 
   }
