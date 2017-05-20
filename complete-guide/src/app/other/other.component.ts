@@ -27,7 +27,7 @@ export class OtherComponent {
 
   }
 
-  onClick(event: Event){
+  onClick(event: Event) {
     console.log(event);
   }
 
