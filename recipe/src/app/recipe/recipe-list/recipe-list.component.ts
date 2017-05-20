@@ -8,8 +8,8 @@ import { Recipe } from '../recipe.model';
   styles: []
 })
 export class RecipeListComponent implements OnInit {
-
 @Output() recipeSelected = new EventEmitter<Recipe>();  
+
 recipe = new Recipe('Dummy', 'hallo', 'http://i.telegraph.co.uk/multimedia/archive/03491/Vladimir_Putin_1_3491835k.jpg') 
 selectedRecipe: Recipe;
   constructor() { }
