@@ -2,6 +2,18 @@
     <ul class="nav nav-pills">
         <li role="presentation"><a href="#">Rezeptbuch</a></li>
         <li role="presentation"><a href="#">Einkaufsliste</a></li>
+        <li>
+            <div class="dropdown" appDropdown>
+                <button id="dLabel" class="btn btn-primary" type="button" aria-haspopup="true" aria-expanded="false">
+                    Dropdown trigger
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <li role="presentation">Speichern</li>
+                    <li role="presentation">Laden</li>
+                </ul>
+            </div>
+        </li>
     </ul>
 </header>
 <hr>

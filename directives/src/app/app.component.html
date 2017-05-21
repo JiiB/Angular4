@@ -1,0 +1,28 @@
+<div class="container">
+    <h1> Attribute Directives</h1>
+    <h2>ngCLass / ngStyle</h2>
+    <div style="height: 100px; width: 100px;" [ngStyle]="{'background-color': color}"></div>
+    <hr>
+    <h2>Custom Attribute Directives</h2>
+    <p appHighlight [defaultColor]="'blue'">I'm Highlighted</p>
+    <hr>
+    <h1>Structural Directives</h1>
+    <h2>*ngIf</h2>
+
+    <button (click)="switch = !switch" class="btn btn-primary">switch</button>
+    <div *ngIf="switch">Nicht immer zu sehen</div>
+    <hr>
+    <h2>*ngFor</h2>
+    <ul class="list-group">
+        <li *ngFor="let element of elemente; let i = index" class="list-group-item">{{element}} - (Index: {{i}})</li>
+    </ul>
+    <h2>*ngSwitch</h2>
+    <hr>
+    <div [ngSwitch]="value">
+        <p *ngSwitchCase="10">10</p>
+        <p *ngSwitchCase="100">100</p>
+        <p *ngSwitchDefault>irgendwas</p>
+    </div>
+    <br>
+    <h2>UnlessDirective</h2>
+</div>
