@@ -1,7 +1,7 @@
 <div class="container">
     <div class="col-xs-12">
-        <a [routerLink]="['/']" [queryParams]="{token: 500}">home</a>
-        <a [routerLink]="['/user', input.value]">user</a>
+        <a [routerLink]="['/']" [queryParams]="{token: 500}" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">home</a>
+        <a [routerLink]="['/user', input.value]" routerLinkActive="active">user</a>
     </div>
     <hr>
     <input type="text" #input placeholder="" (input)="0">

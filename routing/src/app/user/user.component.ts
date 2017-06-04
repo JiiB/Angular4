@@ -10,6 +10,10 @@ import {Subscription} from 'rxjs';
       <div class="col-xs-12">
         <h2>Dein Account</h2>
         <button (click)="onNavigate()">zur startseite</button>
+        <hr>
+        <a [routerLink]="['detail']">Detail</a><br/>
+        <a [routerLink]="['edit']">Edit</a>
+        <router-outlet></router-outlet>
       </div>
       <p>{{id}}</p>
     </div>  
@@ -22,7 +26,7 @@ constructor(private router: Router, private acitvatedRoute: ActivatedRoute){
 
 }
 onNavigate() {
-  this.router.navigate(['/'], {queryParams: {'token': 100}});
+  this.router.navigate(['/'], {queryParams: {'token': 100}, fragment: 'anchor1'});
 }
 ngOnInit() {
 // this.id = this.acitvatedRoute.snapshot.params['id'];
