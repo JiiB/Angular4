@@ -1,4 +1,4 @@
-import {EventEmitter} from '@angular/core';
+// import {EventEmitter} from '@angular/core';
 
 import {Recipe} from './recipe.model';
 import {Ingredient} from './ingredient.model';
@@ -23,9 +23,12 @@ export class RecipeService {
       ])
   ];
 
-recipeSelected = new EventEmitter<Recipe>();
+// recipeSelected = new EventEmitter<Recipe>();
 
   getRecipes() {
       return this.recipes;
+  }
+  getRecipe(id: number){
+    return this.recipes[id];
   }
 }
