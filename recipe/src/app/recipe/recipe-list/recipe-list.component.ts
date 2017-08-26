@@ -21,7 +21,7 @@ recipes: Recipe[];
   }
 
 onNewRecipe(){
-  this.router.navigate(['neu']);
+  this.router.navigate(['/rezepte', 'neu']);
 }
 
 }

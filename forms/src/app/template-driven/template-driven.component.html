@@ -1,0 +1,31 @@
+<h1>Template Driven</h1>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="text" class="form-control" id="email" [(ngModel)]="user.email" name="email" required #email="ngModel">
+            <div *ngIf="!email.valid">Ungülitge Eingabe</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="user.password" name="password" required>
+    </div>
+    <div class="radio">
+        <label>
+      <input type="radio"
+             >
+    </label>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+</form>
+
+<div class="user">
+    <p>{{user.username}}</p>
+    <p>{{user.email}}</p>
+    <p>{{user.password}}</p>
+</div>

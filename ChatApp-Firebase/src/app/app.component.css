@@ -1,0 +1,31 @@
+.spacer {
+    display: flex;
+    flex: 1 1 auto;
+}
+.full-width {
+  width: 100%;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.mat-card {
+    padding: 8px 10px;
+}
+.card-img {
+    display: flex;
+    align-items: center;
+}
+
+.card-img img{
+    border-radius: 50%;
+}
+md-card-subtitle.mat-card-subtitle {
+    margin-bottom: 0;
+}
+.its-me {
+    justify-content: flex-end;
+}
+.its-me md-card-title {
+    display: flex;
+    justify-content: flex-end;
+}

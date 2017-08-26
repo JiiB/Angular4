@@ -1,0 +1,41 @@
+<md-toolbar color="primary">
+    <span>Cancer ChatApp</span>
+    <span class="spacer"></span>
+    <button md-icon-button [mdMenuTriggerFor]="menu">
+  <md-icon>more_vert</md-icon>
+</button>
+    <md-menu #menu="mdMenu">
+        <button md-menu-item (click)=login() *ngIf="!(user | async)?.uid">
+      <md-icon>fingerprint</md-icon>
+      <span>Login</span>
+    </button>
+
+        <button md-menu-item (click)=logout() *ngIf="(user | async)?.uid">
+      <md-icon>lock_outline</md-icon>
+      <span>Logout</span>
+    </button>
+    </md-menu>
+</md-toolbar>
+
+<div class="container">
+  <p *ngIf="(user | async)?.uid && domain != 'toweb.ch'">Bitte mit einer @toweb.ch E-Mail Adresse anmelden!</p>
+    <div *ngIf="(user | async)?.uid && domain == 'toweb.ch'">
+
+        <md-card class="example-card" *ngFor="let item of items | async">
+            <md-card-header [ngClass]="{ 'its-me': item.user == userInfo.displayName }">
+                <div class="card-img" *ngIf="userInfo.displayName != item.user">
+                    <img src="{{item.photo}}" width="40" height="40" title="{{item.user}}">
+                </div>
+                <md-card-title>{{item.message}}</md-card-title>
+                <md-card-subtitle>{{item.date}}</md-card-subtitle>
+            </md-card-header>
+        </md-card>
+
+
+        <div class="bottom">
+            <md-input-container class="full-width mt-20">
+                <input mdInput #msg placeholder="Enter your Message" (keyup.enter)="Send($event.target.value)" [(ngModel)]="msgVal" />
+            </md-input-container>
+        </div>
+    </div>
+</div>
