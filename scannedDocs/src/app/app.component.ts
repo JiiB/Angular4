@@ -1,19 +1,32 @@
-import { Component } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Component, OnInit } from '@angular/core';
+import {ScannedDocsService} from './scanned-docs.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ScannedDocsService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
-  data: any;
+  data = [];
 
-  constructor(private http:Http){
-    this.http.get('http://192.168.1.127/data.php').subscribe((res:Response) => {
-      this.data = res.json();
-      console.log(this.data);
-    })
+  constructor(private _sdS: ScannedDocsService){}
+  ngOnInit(){
+    this.detectUpdates();
+    setInterval(() => {
+      this.detectUpdates();
+    }, 2000);
   }
+    
+  detectUpdates() {
+    this._sdS.getDocs()
+      .subscribe(resDocs => this.data = resDocs);
+  }
+
+  listItems(){
+    console.log(this.data);
+  }
+
+
 }
