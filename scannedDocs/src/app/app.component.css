@@ -28,10 +28,28 @@
     }
 }
 
-.mat-card {
+
+
+/* .mat-card {
     transition: 100ms;
+} */
+md-card.mat-card {
+    display: flex;
+    align-items: center;
+    padding: 18px;
+}
+.mat-card a{
+    color: #263238;
+    text-decoration: none;
+    /* flex:1; */
 }
 
-.mat-card:hover {
+/* .mat-card:hover {
     background: #F7F7F7;
+} */
+
+@media (max-width: 650px){
+    .mat-card a{
+        font-size: 14px;
+    }
 }

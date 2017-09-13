@@ -9,7 +9,13 @@
 
 <div class="container">
 
-    <div class="item" *ngFor="let item of data">
-        <md-card><a href="http://192.168.1.127/scan/{{item.name}}" target="_blank">{{item.name}}</a> </md-card>
+    <div class="item">
+        <md-card *ngFor="let item of data">
+            <a #filename mdTooltip="{{item.date}}" href="http://192.168.1.127/scan/{{item.name}}" target="_blank">{{item.name}}</a>
+            <div class="spacer"></div>
+            <button md-icon-button color="primary">
+                <i mdTooltip="Name ändern" (click)="openDialog(filename)" class="material-icons">mode_edit</i>
+            </button>
+        </md-card>
     </div>
 </div>
