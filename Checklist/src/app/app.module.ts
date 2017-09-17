@@ -26,13 +26,16 @@ import 'hammerjs';
 import {environment} from '../environments/environment';
 import { ComponentViewerComponent } from './component-viewer/component-viewer.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
+import { LoginComponent } from './login/login.component';
+import {AuthService} from './providers/auth.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ComponentViewerComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,7 @@ import { PageHeaderComponent } from './page-header/page-header.component';
     BrowserAnimationsModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

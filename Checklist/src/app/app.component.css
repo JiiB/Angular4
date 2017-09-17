@@ -85,4 +85,6 @@ md-toolbar img {
   }
 }
 
-
+.spacer{
+  flex: 1;
+}
