@@ -11,9 +11,9 @@
     <md-sidenav #sidenav mode="side" opened="true" class="docs-component-viewer-sidenav">
       <span class="sidenav-title-element">Navigation</span>
       <a md-raised-button routerLink=".">Link</a>
-      <a md-raised-button routerLink=".">Link</a>
-      <a md-raised-button routerLink=".">Link</a>
-      <a md-raised-button routerLink=".">Link</a>
+      <a *ngIf="authService.isLoggedIn()" md-raised-button routerLink=".">Link</a>
+      <a *ngIf="authService.isLoggedIn()" md-raised-button routerLink=".">Link</a>
+      <a *ngIf="authService.isLoggedIn()" md-raised-button routerLink=".">Link</a>
 
       <div *ngIf="authInfo$?.checkLoginState()">du bist nicht angemeldet </div>
       <div *ngIf="!authInfo$?.checkLoginState()">du bist angemeldet </div>

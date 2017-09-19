@@ -5,7 +5,6 @@ import {Component, ViewChild, OnInit} from '@angular/core';
 // import * as firebase from 'firebase/app';
 import {MdSidenav} from '@angular/material';
 import {AuthService} from './providers/auth.service';
-import {AuthState} from './providers/auth-state';
 
 
 @Component({
@@ -16,16 +15,13 @@ import {AuthState} from './providers/auth-state';
 export class AppComponent implements OnInit {
   @ViewChild('start') sidenav: MdSidenav;
 
-  authInfo: AuthState;
 
   constructor(private authService: AuthService) {
 
   }
 
   ngOnInit() {
-    this.authService.authInfo$.subscribe(
-      authInfo => this.authInfo = authInfo
-    );
+
   }
 
   onResize($event) {

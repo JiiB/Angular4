@@ -1,47 +1,39 @@
 import {Injectable} from '@angular/core';
-import {AngularFireAuth} from 'angularfire2/auth';
-import {Observable, Subject} from 'rxjs/rx';
+import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import {AuthState} from './auth-state';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
+
 
 @Injectable()
 export class AuthService {
 
-  static UNKNOWN_USER = new AuthState(null);
-  authInfo$: BehaviorSubject<AuthState> = new BehaviorSubject<AuthState>(AuthService.UNKNOWN_USER);
-  user: Observable<firebase.User>;
-  userInfo: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  private user: Observable<firebase.User>;
+  private userDetails: firebase.User = null;
   constructor(private afAuth: AngularFireAuth) {
     this.user = afAuth.authState;
-    this.user.subscribe(res => this.userInfo.next(res));
-    this.userInfo.subscribe(res => console.log(res));
+    this.user.subscribe(
+      (user) => {
+        if (user) {
+          this.userDetails = user;
+          console.log(this.userDetails);
+        } else {
+          this.userDetails = null;
+        }
+      }
+    );
   }
 
   login() {
     return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
-  // fromFirebaseAuthPromise(promise): Observable<any> {
-  //   const subject = new Subject<any>();
-  //
-  //   promise
-  //     .then(
-  //       res => {
-  //         const authInfo = new AuthState(this.userInfo.uid);
-  //         this.authInfo$.next(authInfo);
-  //         subject.next(res);
-  //         subject.complete();
-  //       },
-  //       err => {
-  //         this.authInfo$.error(err);
-  //         subject.error(err);
-  //         subject.complete();
-  //       }
-  //     );
-  //
-  //   return subject.asObservable();
-  // }
+  isLoggedIn() {
+    if (this.userDetails == null ) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   logout() {
     return this.afAuth.auth.signOut();
