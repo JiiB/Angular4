@@ -10,8 +10,8 @@
   <md-sidenav-container #start class="example-sidenav-fab-container">
     <md-sidenav #sidenav mode="side" opened="true" class="docs-component-viewer-sidenav">
       <span class="sidenav-title-element">Navigation</span>
-      <a md-raised-button routerLink=".">Link</a>
-      <a *ngIf="authService.isLoggedIn()" md-raised-button routerLink=".">Link</a>
+      <a md-raised-button routerLink="login">Login</a>
+      <a *ngIf="authService.isLoggedIn()" md-raised-button routerLink="dashboard">Dashboard</a>
       <a *ngIf="authService.isLoggedIn()" md-raised-button routerLink=".">Link</a>
       <a *ngIf="authService.isLoggedIn()" md-raised-button routerLink=".">Link</a>
 
