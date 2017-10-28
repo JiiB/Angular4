@@ -35,6 +35,10 @@ export class AuthService {
     }
   }
 
+  userInfo(){
+    return this.userDetails;
+  }
+
   logout() {
     return this.afAuth.auth.signOut();
   }

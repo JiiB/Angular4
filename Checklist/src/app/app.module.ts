@@ -3,19 +3,19 @@ import {NgModule} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import {
-    MdButtonModule,
-    MdIconModule,
-    MdProgressSpinnerModule,
-    MdCheckboxModule,
-    MdCardModule,
-    MdSidenavModule,
-    MdProgressBarModule,
-    MdAutocompleteModule,
-    MdRadioModule,
-    MdInputModule,
-    MdToolbarModule,
-    MdDialogModule,
-    MdTooltipModule
+    MatButtonModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatProgressBarModule,
+    MatAutocompleteModule,
+    MatRadioModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatDialogModule,
+    MatTooltipModule
 } from '@angular/material'; 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -53,25 +53,25 @@ const appRoutes: Routes = [
     imports: [
         RouterModule.forRoot(
             appRoutes,
-            { enableTracing: true } // <-- debugging purposes only)
+            { enableTracing: false } // <-- debugging purposes only)
         ),
         BrowserModule,
-        MdButtonModule,
-        MdIconModule,
-        MdToolbarModule,
-        MdDialogModule,
-        MdRadioModule,
-        MdTooltipModule,
-        MdProgressBarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatDialogModule,
+        MatRadioModule,
+        MatTooltipModule,
+        MatProgressBarModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
-        MdSidenavModule,
-        MdProgressSpinnerModule,
-        MdAutocompleteModule,
-        MdCardModule,
-        MdInputModule,
-        MdCheckboxModule,
+        MatSidenavModule,
+        MatProgressSpinnerModule,
+        MatAutocompleteModule,
+        MatCardModule,
+        MatInputModule,
+        MatCheckboxModule,
         BrowserAnimationsModule,
         FlexLayoutModule
     ],

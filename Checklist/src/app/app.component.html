@@ -1,26 +1,25 @@
-<md-toolbar color="primary" (window:resize)="onResize($event)">
-  <button id="menu-btn-toolbar" md-icon-button (click)="sidenav.toggle()">
-    <md-icon class="md-24" aria-label="Hamburger Menu icon">menu</md-icon>
+<mat-toolbar color="primary" (window:resize)="onResize($event)">
+    <button id="menu-btn-toolbar" mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon class="mat-24" aria-label="Hamburger Menu icon">menu</mat-icon>
   </button>
-  <img src="/assets/img/logo.png" width="22" alt="">
-  Checklist
-  <div class="spacer"></div>
-</md-toolbar>
+    <img src="/assets/img/logo.png" width="22" alt=""> <span>Checklist</span>
+    <div class="spacer"></div>
+    <img id="profile-img" src="{{authService.userInfo().photoURL}}" title="{{authService.userInfo().displayName}}" *ngIf="authService.isLoggedIn()" />
+</mat-toolbar>
 <div id="main">
-  <md-sidenav-container #start class="example-sidenav-fab-container">
-    <md-sidenav #sidenav mode="side" opened="true" class="docs-component-viewer-sidenav">
-      <span class="sidenav-title-element">Navigation</span>
-      <a md-raised-button routerLink="login">Login</a>
-      <a *ngIf="authService.isLoggedIn()" md-raised-button routerLink="dashboard">Dashboard</a>
-      <a *ngIf="authService.isLoggedIn()" md-raised-button routerLink=".">Link</a>
-      <a *ngIf="authService.isLoggedIn()" md-raised-button routerLink=".">Link</a>
+    <mat-sidenav-container #start class="example-sidenav-fab-container">
+        <mat-sidenav id="sidenav-container" #sidenav mode="side" opened="true" class="docs-component-viewer-sidenav">
+            <nav>
+                <span class="sidenav-title-element">Navigation</span>
+                <li><a routerLink="login">Login</a></li>
+                <li><a *ngIf="authService.isLoggedIn()" routerLink="dashboard">Dashboard</a></li>
+                <li><a *ngIf="authService.isLoggedIn()" routerLink=".">Link</a></li>
+                <li><a *ngIf="authService.isLoggedIn()" routerLink=".">Link</a></li>
+            </nav>
+        </mat-sidenav>
 
-      <div *ngIf="authInfo$?.checkLoginState()">du bist nicht angemeldet </div>
-      <div *ngIf="!authInfo$?.checkLoginState()">du bist angemeldet </div>
-    </md-sidenav>
+        <app-page-header></app-page-header>
+        <app-component-viewer id="test"></app-component-viewer>
 
-    <app-page-header></app-page-header>
-    <app-component-viewer id="test"></app-component-viewer>
-
-  </md-sidenav-container>
+    </mat-sidenav-container>
 </div>

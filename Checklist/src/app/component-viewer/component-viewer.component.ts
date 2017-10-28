@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import {AuthService} from '../providers/auth.service';
 
 @Component({
@@ -9,10 +8,8 @@ import {AuthService} from '../providers/auth.service';
 })
 export class ComponentViewerComponent  {
 
-  items: FirebaseListObservable<any>;
-  constructor(db: AngularFireDatabase, private authService: AuthService) {
-    this.items = db.list('/Domains');
-    // this.items.push({url: 'youtube.ch', owner: 'Peter', checklist: true});
+  constructor( private authService: AuthService) {
+
   }
 
 

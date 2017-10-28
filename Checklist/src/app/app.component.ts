@@ -3,7 +3,7 @@ import {Component, ViewChild, OnInit} from '@angular/core';
 // import { AngularFireAuth } from 'angularfire2/auth';
 // import { Observable } from 'rxjs/Observable';
 // import * as firebase from 'firebase/app';
-import {MdSidenav} from '@angular/material';
+import {MatSidenav} from '@angular/material';
 import {AuthService} from './providers/auth.service';
 
 
@@ -13,7 +13,7 @@ import {AuthService} from './providers/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  @ViewChild('start') sidenav: MdSidenav;
+  @ViewChild('start') sidenav: MatSidenav;
 
 
   constructor(private authService: AuthService) {

@@ -1,6 +1,8 @@
-<md-card>
-  <h4>Bitte melde dich an um fortzufahren</h4>
+<mat-card>
+    <h4 *ngIf="!authService.isLoggedIn()">Bitte melde dich an um fortzufahren</h4>
+    <h4 *ngIf="authService.isLoggedIn()">Hallo {{authService.userInfo().displayName}}, schön dich zusehen!</h4>
 
-  <button md-raised-button *ngIf="!authService.isLoggedIn()" color="primary" (click)="login()">Login</button>
-  <button md-raised-button *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</button>
-</md-card>
+
+    <button mat-raised-button *ngIf="!authService.isLoggedIn()" color="primary" (click)="login()">Login</button>
+    <button mat-raised-button *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</button>
+</mat-card>
