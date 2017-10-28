@@ -16,7 +16,7 @@ import {
     MdToolbarModule,
     MdDialogModule,
     MdTooltipModule
-} from '@angular/material';
+} from '@angular/material'; 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
