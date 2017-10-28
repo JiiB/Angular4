@@ -1,0 +1,12 @@
+<div *ngIf="customers?.length > 0; else noCustomers">
+    <mat-card *ngFor="let customer of customers">
+        {{customer.name}} - {{customer.domain}}
+    </mat-card>
+</div>
+
+<ng-template #noCustomers>
+    <div class="text-center">
+        <mat-spinner [diameter]="40" strokeWidth="5"></mat-spinner>
+        <h4>Lade Kunden Liste</h4>
+    </div>
+</ng-template>

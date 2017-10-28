@@ -20,16 +20,18 @@ import {
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from "angularfire2/firestore";
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {AppComponent} from './app.component';
 import 'hammerjs';
 import {environment} from '../environments/environment';
-import { ComponentViewerComponent } from './component-viewer/component-viewer.component';
-import { PageHeaderComponent } from './page-header/page-header.component';
-import { LoginComponent } from './login/login.component';
+import { ComponentViewerComponent } from './components/component-viewer/component-viewer.component';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
+import { LoginComponent } from './components/login/login.component';
 import {AuthService} from './providers/auth.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CustomersComponent } from './components/customers/customers.component';
+import { CustomersService } from './providers/customers.service';
 
 const appRoutes: Routes = [
     {
@@ -39,6 +41,10 @@ const appRoutes: Routes = [
     {
         path: 'dashboard',
         component: DashboardComponent
+    },
+    {
+        path: 'customers',
+        component: CustomersComponent
     }
 ];
 
@@ -48,7 +54,8 @@ const appRoutes: Routes = [
         ComponentViewerComponent,
         PageHeaderComponent,
         LoginComponent,
-        DashboardComponent
+        DashboardComponent,
+        CustomersComponent
     ],
     imports: [
         RouterModule.forRoot(
@@ -75,7 +82,7 @@ const appRoutes: Routes = [
         BrowserAnimationsModule,
         FlexLayoutModule
     ],
-    providers: [AuthService],
+    providers: [AuthService, CustomersService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

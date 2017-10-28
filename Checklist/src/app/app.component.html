@@ -2,7 +2,7 @@
     <button id="menu-btn-toolbar" mat-icon-button (click)="sidenav.toggle()">
     <mat-icon class="mat-24" aria-label="Hamburger Menu icon">menu</mat-icon>
   </button>
-    <img src="/assets/img/logo.png" width="22" alt=""> <span>Checklist</span>
+    <img id="logo" src="/assets/img/logo.png" width="22" alt=""> <span>Checklist</span>
     <div class="spacer"></div>
     <img id="profile-img" src="{{authService.userInfo().photoURL}}" title="{{authService.userInfo().displayName}}" *ngIf="authService.isLoggedIn()" />
 </mat-toolbar>
@@ -13,7 +13,7 @@
                 <span class="sidenav-title-element">Navigation</span>
                 <li><a routerLink="login">Login</a></li>
                 <li><a *ngIf="authService.isLoggedIn()" routerLink="dashboard">Dashboard</a></li>
-                <li><a *ngIf="authService.isLoggedIn()" routerLink=".">Link</a></li>
+                <li><a *ngIf="authService.isLoggedIn()" routerLink="customers">Customers</a></li>
                 <li><a *ngIf="authService.isLoggedIn()" routerLink=".">Link</a></li>
             </nav>
         </mat-sidenav>
