@@ -20,7 +20,7 @@ import {
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {AppComponent} from './app.component';
 import 'hammerjs';
@@ -64,7 +64,7 @@ const appRoutes: Routes = [
         MatTooltipModule,
         MatProgressBarModule,
         AngularFireModule.initializeApp(environment.firebase),
-        AngularFireDatabaseModule,
+        AngularFirestoreModule,
         AngularFireAuthModule,
         MatSidenavModule,
         MatProgressSpinnerModule,
