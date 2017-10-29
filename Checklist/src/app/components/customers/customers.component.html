@@ -1,7 +1,27 @@
+<a mat-raised-button color="primary" matTooltip="neuer Kunde erfassen" routerLink="/customers/add-customer">Kunde hinzufügen</a>
+<br><br>
 <div *ngIf="customers?.length > 0; else noCustomers">
-    <mat-card *ngFor="let customer of customers">
-        {{customer.name}} - {{customer.domain}}
-    </mat-card>
+    <mat-expansion-panel *ngFor="let customer of customers">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{customer.name}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{customer.domain}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="btn-wrap">
+            <button mat-raised-button color="primary" matTooltip="Checkliste anschauen/bearbeiten">zur Checkliste</button>
+            <button mat-raised-button matTooltip="Prüfer hinzufügen">
+                <mat-icon aria-label="add person">person_add</mat-icon> Prüfer einladen
+            </button>
+            <div class="spacer"></div>
+            <button mat-raised-button color="warn" matTooltip="Kunde und Checkliste löschen">
+                <mat-icon aria-label="delete">delete</mat-icon> Löschen
+            </button>
+        </div>
+    </mat-expansion-panel>
 </div>
 
 <ng-template #noCustomers>

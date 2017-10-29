@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import {
     MatButtonModule,
@@ -13,9 +14,11 @@ import {
     MatAutocompleteModule,
     MatRadioModule,
     MatInputModule,
+    MatExpansionModule,
     MatToolbarModule,
     MatDialogModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSnackBar
 } from '@angular/material'; 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -32,6 +35,7 @@ import {AuthService} from './providers/auth.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { CustomersService } from './providers/customers.service';
+import { AddCustomerComponent } from './components/add-customer/add-customer.component';
 
 const appRoutes: Routes = [
     {
@@ -45,6 +49,10 @@ const appRoutes: Routes = [
     {
         path: 'customers',
         component: CustomersComponent
+    },
+    {
+        path: 'customers/add-customer',
+        component: AddCustomerComponent
     }
 ];
 
@@ -55,7 +63,8 @@ const appRoutes: Routes = [
         PageHeaderComponent,
         LoginComponent,
         DashboardComponent,
-        CustomersComponent
+        CustomersComponent,
+        AddCustomerComponent
     ],
     imports: [
         RouterModule.forRoot(
@@ -73,6 +82,7 @@ const appRoutes: Routes = [
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
         AngularFireAuthModule,
+        MatExpansionModule,
         MatSidenavModule,
         MatProgressSpinnerModule,
         MatAutocompleteModule,
@@ -80,9 +90,10 @@ const appRoutes: Routes = [
         MatInputModule,
         MatCheckboxModule,
         BrowserAnimationsModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        FormsModule
     ],
-    providers: [AuthService, CustomersService],
+    providers: [AuthService, CustomersService, MatSnackBar],
     bootstrap: [AppComponent]
 })
 export class AppModule {

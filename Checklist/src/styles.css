@@ -52,3 +52,12 @@ md-toolbar.mat-toolbar {
 .text-center .mat-spinner {
     margin: auto
 }
+
+.spacer {
+    display: flex;
+    flex: 1;
+}
+
+.full-width {
+    width: 100%;
+}

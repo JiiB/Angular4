@@ -3,6 +3,6 @@ export interface Customer {
     id?: string;
     name?: string;
     domain?: string;
-    date_created?: any;
-    date_last_edited?: any;
+    date_created?: number;
+    date_last_edited?: number;
 }
