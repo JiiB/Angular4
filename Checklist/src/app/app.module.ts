@@ -36,6 +36,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { CustomersService } from './providers/customers.service';
 import { AddCustomerComponent } from './components/add-customer/add-customer.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 const appRoutes: Routes = [
     {
@@ -64,7 +65,8 @@ const appRoutes: Routes = [
         LoginComponent,
         DashboardComponent,
         CustomersComponent,
-        AddCustomerComponent
+        AddCustomerComponent,
+        DialogComponent
     ],
     imports: [
         RouterModule.forRoot(
@@ -92,6 +94,9 @@ const appRoutes: Routes = [
         BrowserAnimationsModule,
         FlexLayoutModule,
         FormsModule
+    ],
+    entryComponents: [
+        DialogComponent
     ],
     providers: [AuthService, CustomersService, MatSnackBar],
     bootstrap: [AppComponent]

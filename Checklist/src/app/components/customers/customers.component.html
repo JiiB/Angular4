@@ -17,7 +17,11 @@
                 <mat-icon aria-label="add person">person_add</mat-icon> Prüfer einladen
             </button>
             <div class="spacer"></div>
-            <button mat-raised-button color="warn" matTooltip="Kunde und Checkliste löschen">
+
+            <button mat-raised-button (click)="openDialogEdit(customer)" matTooltip="Kunde und Checkliste löschen">
+                <mat-icon aria-label="edit">edit</mat-icon> Bearbeiten
+            </button>
+            <button mat-raised-button color="warn" (click)="openDialogDelete(customer)" matTooltip="Kunde und Checkliste löschen">
                 <mat-icon aria-label="delete">delete</mat-icon> Löschen
             </button>
         </div>

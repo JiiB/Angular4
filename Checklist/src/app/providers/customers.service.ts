@@ -7,9 +7,10 @@ import { Observable } from 'rxjs/Observable';
 export class CustomersService {
   customersCollection: AngularFirestoreCollection<Customer>;
   customers: Observable<Customer[]>;
+  customerDoc: AngularFirestoreDocument<Customer>;
   constructor(public afs: AngularFirestore, ) {
 
-    this.customersCollection = this.afs.collection('Customers');
+    this.customersCollection = this.afs.collection('Customers', ref => ref.orderBy('name', 'asc'));
 
     // fetch data from "Customers" collection
     // this.customers = this.afs.collection('Customers').valueChanges();
@@ -26,8 +27,18 @@ export class CustomersService {
     return this.customers;
   }
 
-  addCustomer(customer: Customer){
+  addCustomer(customer: Customer) {
     this.customersCollection.add(customer);
+  }
+
+  updateCustomer(customer: Customer) {
+    this.customerDoc = this.afs.doc(`Customers/${customer.id}`);
+    this.customerDoc.update(customer);
+  }
+
+  deleteCustomer(customer: Customer) {
+    this.customerDoc = this.afs.doc(`Customers/${customer.id}`);
+    this.customerDoc.delete();
   }
 
 }
