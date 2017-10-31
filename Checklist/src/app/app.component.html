@@ -13,7 +13,8 @@
                 <span class="sidenav-title-element">Navigation</span>
                 <li><a routerLink="login">Login</a></li>
                 <li><a *ngIf="authService.isLoggedIn()" routerLink="/dashboard">Dashboard</a></li>
-                <li><a *ngIf="authService.isLoggedIn()" routerLink="/customers">Customers</a></li>
+                <li><a *ngIf="authService.isLoggedIn()" routerLink="/customers">Kunden</a></li>
+                <li><a *ngIf="authService.isLoggedIn()" routerLink="/checklist">Checkliste</a></li>
                 <li><a *ngIf="authService.isLoggedIn()" routerLink=".">Link</a></li>
             </nav>
         </mat-sidenav>

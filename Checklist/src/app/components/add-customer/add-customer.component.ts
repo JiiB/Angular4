@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomersService } from '../../providers/customers.service';
 import { Customer } from '../../models/Customer';
 import { Router } from '@angular/router';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 
 
 
@@ -18,7 +18,7 @@ export class AddCustomerComponent implements OnInit {
     domain: '',
     date_created: 0
   };
-  constructor(private customerService: CustomersService, private router: Router) { }
+  constructor(private customerService: CustomersService, private router: Router, public snackBar: MatSnackBar) { }
 
   ngOnInit() { }
 
@@ -26,9 +26,10 @@ export class AddCustomerComponent implements OnInit {
     // TODO: add URL validation
     if (this.customer.name !== '' && this.customer.domain !== '') {
       this.customerService.addCustomer(this.customer);
-      // TODO: redirect an show toast
-      this.router.navigate(['/customers']);
+      this.snackBar.open(`Der Kunde ${this.customer.name} wurde hinzugefügt!`);
     }
+
   }
+
 
 }

@@ -13,12 +13,12 @@
 
         <div class="btn-wrap">
             <button mat-raised-button color="primary" matTooltip="Checkliste anschauen/bearbeiten">zur Checkliste</button>
-            <button mat-raised-button matTooltip="Prüfer hinzufügen">
+            <button mat-raised-button>
                 <mat-icon aria-label="add person">person_add</mat-icon> Prüfer einladen
             </button>
             <div class="spacer"></div>
 
-            <button mat-raised-button (click)="openDialogEdit(customer)" matTooltip="Kunde und Checkliste löschen">
+            <button mat-raised-button (click)="openDialogEdit(customer)">
                 <mat-icon aria-label="edit">edit</mat-icon> Bearbeiten
             </button>
             <button mat-raised-button color="warn" (click)="openDialogDelete(customer)" matTooltip="Kunde und Checkliste löschen">
@@ -31,6 +31,6 @@
 <ng-template #noCustomers>
     <div class="text-center">
         <mat-spinner [diameter]="40" strokeWidth="5"></mat-spinner>
-        <h4>Lade Kunden Liste</h4>
+        <h4>Lade Kundenliste</h4>
     </div>
 </ng-template>

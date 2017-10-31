@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Customer } from '../models/Customer';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class CustomersService {
   customersCollection: AngularFirestoreCollection<Customer>;
   customers: Observable<Customer[]>;
   customerDoc: AngularFirestoreDocument<Customer>;
-  constructor(public afs: AngularFirestore, ) {
+  constructor(public afs: AngularFirestore, public router: Router ) {
 
     this.customersCollection = this.afs.collection('Customers', ref => ref.orderBy('name', 'asc'));
 
@@ -28,7 +29,9 @@ export class CustomersService {
   }
 
   addCustomer(customer: Customer) {
-    this.customersCollection.add(customer);
+    // TODO: find better solution to avoid, that the collections gets loaded again, afer a new customer is added to firestore.
+    // quickfix: redirect after the promise resolves
+    this.customersCollection.add(customer).then(res => (this.router.navigate(['/customers'])));
   }
 
   updateCustomer(customer: Customer) {

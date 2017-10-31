@@ -1,26 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CustomersService } from '../../providers/customers.service';
 import { Customer } from '../../models/Customer';
 import { MatDialog } from '@angular/material';
 import { DialogComponent } from '../dialog/dialog.component';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css']
 })
-export class CustomersComponent implements OnInit {
+export class CustomersComponent implements OnInit, OnDestroy {
   customers: Customer[];
+  private subscription: Subscription;
   constructor(private customerService: CustomersService, public dialog: MatDialog) {
-    this.customerService.getCustomers().subscribe(customers => {
+
+    // alert("jklfasd");
+  }
+
+  ngOnInit() {
+    this.subscription = this.customerService.getCustomers().subscribe(customers => {
       this.customers = customers;
     });
   }
 
-  ngOnInit() {
-    // this.customerService.getCustomers().subscribe(customers => {
-    //   this.customers = customers;
-    // });
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+    // alert("left component");
   }
 
   // Delete Dialog

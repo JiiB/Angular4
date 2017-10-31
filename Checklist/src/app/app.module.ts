@@ -18,7 +18,7 @@ import {
     MatToolbarModule,
     MatDialogModule,
     MatTooltipModule,
-    MatSnackBar
+    MatSnackBarModule
 } from '@angular/material'; 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -37,6 +37,7 @@ import { CustomersComponent } from './components/customers/customers.component';
 import { CustomersService } from './providers/customers.service';
 import { AddCustomerComponent } from './components/add-customer/add-customer.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { ChecklistComponent } from './components/checklist/checklist.component';
 
 const appRoutes: Routes = [
     {
@@ -54,6 +55,10 @@ const appRoutes: Routes = [
     {
         path: 'customers/add-customer',
         component: AddCustomerComponent
+    },
+    {
+        path: 'checklist',
+        component: ChecklistComponent
     }
 ];
 
@@ -66,7 +71,8 @@ const appRoutes: Routes = [
         DashboardComponent,
         CustomersComponent,
         AddCustomerComponent,
-        DialogComponent
+        DialogComponent,
+        ChecklistComponent
     ],
     imports: [
         RouterModule.forRoot(
@@ -86,6 +92,7 @@ const appRoutes: Routes = [
         AngularFireAuthModule,
         MatExpansionModule,
         MatSidenavModule,
+        MatSnackBarModule,
         MatProgressSpinnerModule,
         MatAutocompleteModule,
         MatCardModule,
@@ -98,7 +105,7 @@ const appRoutes: Routes = [
     entryComponents: [
         DialogComponent
     ],
-    providers: [AuthService, CustomersService, MatSnackBar],
+    providers: [AuthService, CustomersService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
