@@ -10,6 +10,7 @@ export class ChecklistComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

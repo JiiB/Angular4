@@ -58,7 +58,11 @@ const appRoutes: Routes = [
     },
     {
         path: 'checklist',
-        component: ChecklistComponent
+        component: ChecklistComponent,
+        children: [{
+            path: ':id',
+            component: ChecklistComponent
+          }]
     }
 ];
 
