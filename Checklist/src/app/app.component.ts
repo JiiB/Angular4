@@ -4,7 +4,7 @@ import {Component, ViewChild, OnInit} from '@angular/core';
 // import { Observable } from 'rxjs/Observable';
 // import * as firebase from 'firebase/app';
 import {MatSidenav} from '@angular/material';
-import {AuthService} from './providers/auth.service';
+import { AuthService } from './core/auth.service';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   @ViewChild('start') sidenav: MatSidenav;
 
 
-  constructor(private authService: AuthService) {
+  constructor(public auth: AuthService) {
 
   }
 

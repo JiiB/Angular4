@@ -4,7 +4,7 @@
   </button>
     <img id="logo" src="/assets/img/logo.png" width="22" alt=""> <span>Checklist</span>
     <div class="spacer"></div>
-    <img id="profile-img" src="{{authService.userInfo().photoURL}}" title="{{authService.userInfo().displayName}}" *ngIf="authService.isLoggedIn()" />
+    <img id="profile-img" src="{{user.photoURL}}" title="{{user.displayName}}" *ngIf="auth.user | async as user" />
 </mat-toolbar>
 <div id="main">
     <mat-sidenav-container #start class="example-sidenav-fab-container">
@@ -12,10 +12,10 @@
             <nav>
                 <span class="sidenav-title-element">Navigation</span>
                 <li><a routerLink="login">Login</a></li>
-                <li><a *ngIf="authService.isLoggedIn()" routerLink="/dashboard">Dashboard</a></li>
-                <li><a *ngIf="authService.isLoggedIn()" routerLink="/customers">Kunden</a></li>
-                <li><a *ngIf="authService.isLoggedIn()" routerLink="/checklist">Checkliste</a></li>
-                <li><a *ngIf="authService.isLoggedIn()" routerLink=".">Link</a></li>
+                <li><a routerLink="/dashboard">Dashboard</a></li>
+                <li><a routerLink="/customers">Kunden</a></li>
+                <!-- <li><a routerLink="/checklist">Checkliste</a></li> -->
+                <li><a routerLink=".">Link</a></li>
             </nav>
         </mat-sidenav>
 
