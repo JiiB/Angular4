@@ -4,6 +4,8 @@ import { Customer } from '../../models/Customer';
 import { MatDialog } from '@angular/material';
 import { DialogComponent } from '../dialog/dialog.component';
 import { Subscription } from 'rxjs/Subscription';
+import { EditCustomerDialogComponent } from '../dialogs/edit-customer-dialog/edit-customer-dialog.component';
+import { AddCustomerDialogComponent } from '../dialogs/add-customer-dialog/add-customer-dialog.component';
 
 @Component({
   selector: 'app-customers',
@@ -29,6 +31,40 @@ export class CustomersComponent implements OnInit, OnDestroy {
     // alert("left component");
   }
 
+  // add Dialog
+  openDialogAdd(customer: Customer): void {
+    const dialogRef = this.dialog.open(AddCustomerDialogComponent, {
+      width: '400px',
+      data: {
+        title: `Kunde hinzufügen`,
+        customer: customer
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // TODO: Validate the user input
+      this.customerService.addCustomer(result);
+    });
+  }
+
+  // Edit Dialog
+  openDialogEdit(customer: Customer): void {
+    const dialogRef = this.dialog.open(EditCustomerDialogComponent, {
+      width: '400px',
+      data: {
+        title: `Kunde bearbeiten`,
+        customer_edit: true,
+        customer: customer
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      // TODO: Validate the user input
+      this.customerService.updateCustomer(customer);
+    });
+  }
+
   // Delete Dialog
   openDialogDelete(customer: Customer): void {
     const dialogRef = this.dialog.open(DialogComponent, {
@@ -47,23 +83,7 @@ export class CustomersComponent implements OnInit, OnDestroy {
       }
     });
   }
-  // Edit Dialog
-  openDialogEdit(customer: Customer): void {
-    const dialogRef = this.dialog.open(DialogComponent, {
-      width: '400px',
-      data: {
-        title: `Kunde bearbeiten`,
-        customer_edit: true,
-        customer: customer
-      }
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-      // TODO: Validate the user input
-        this.customerService.updateCustomer(customer);
-    });
-  }
 
   deleteCustomer(event, customer: Customer) {
     this.customerService.deleteCustomer(customer);

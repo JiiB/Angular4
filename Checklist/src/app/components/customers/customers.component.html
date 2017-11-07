@@ -1,4 +1,4 @@
-<a mat-raised-button color="primary" matTooltip="neuer Kunde erfassen" routerLink="/customers/add-customer">Kunde hinzufügen</a>
+<a mat-raised-button color="primary" matTooltip="neuer Kunde erfassen" (click)="openDialogAdd()">Kunde hinzufügen</a>
 <br><br>
 <div *ngIf="customers?.length > 0; else noCustomers">
     <mat-expansion-panel *ngFor="let customer of customers">

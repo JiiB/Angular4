@@ -1,0 +1,23 @@
+<div>
+    <h2 mat-dialog-title>{{data.title}}</h2>
+    <mat-dialog-content>
+        <div *ngIf="data.content">
+            {{data.content}}
+            <br><br>
+        </div>
+        <div>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Name" required [(ngModel)]="customer.name">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Domain" required [(ngModel)]="customer.domain">
+            </mat-form-field>
+            <br>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-raised-button (click)="saveEditCustomer()">Ok</button>
+        <button mat-raised-button color="warn" mat-dialog-close>Abbrechen</button>
+    </mat-dialog-actions>
+</div>

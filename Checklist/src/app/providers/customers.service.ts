@@ -3,13 +3,16 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Customer } from '../models/Customer';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable()
 export class CustomersService {
   customersCollection: AngularFirestoreCollection<Customer>;
   customers: Observable<Customer[]>;
+  // Test for stateChanges()
+  customersTest: Observable<Customer[]>;
   customerDoc: AngularFirestoreDocument<Customer>;
-  constructor(public afs: AngularFirestore, public router: Router ) {
+  constructor(public afs: AngularFirestore, public router: Router, public snackBar: MatSnackBar) {
 
     this.customersCollection = this.afs.collection('Customers', ref => ref.orderBy('name', 'asc'));
 
@@ -22,6 +25,17 @@ export class CustomersService {
         return data;
       });
     });
+
+    // ----
+
+    this.customersTest = this.customersCollection.stateChanges(['added'])
+    .map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Customer;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      });
+    });
   }
 
   getCustomers() {
@@ -31,17 +45,30 @@ export class CustomersService {
   addCustomer(customer: Customer) {
     // TODO: find better solution to avoid, that the collections gets loaded again, afer a new customer is added to firestore.
     // quickfix: redirect after the promise resolves
-    this.customersCollection.add(customer).then(res => (this.router.navigate(['/customers'])));
+    this.customersCollection.add(customer).then(() => {
+      this.snackBar.open(`Der Kunde ${customer.name} wurde hinzugefügt!`, '', {
+        duration: 2500
+      });
+    });
+    // this.customersCollection.add(customer).then(res => (this.router.navigate(['/customers'])));
   }
 
   updateCustomer(customer: Customer) {
     this.customerDoc = this.afs.doc(`Customers/${customer.id}`);
-    this.customerDoc.update(customer);
+    this.customerDoc.update(customer).then(() => {
+      this.snackBar.open(`Der Kunde ${customer.name} wurde bearbeitet!`, '', {
+        duration: 2500
+      });
+    });
   }
 
   deleteCustomer(customer: Customer) {
     this.customerDoc = this.afs.doc(`Customers/${customer.id}`);
-    this.customerDoc.delete();
+    this.customerDoc.delete().then(() => {
+      this.snackBar.open(`Der Kunde ${customer.name} wurde gelöscht!`, '', {
+        duration: 2500
+      });
+    });
   }
 
 }

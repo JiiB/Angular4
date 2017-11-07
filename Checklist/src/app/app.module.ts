@@ -33,15 +33,15 @@ import {environment} from '../environments/environment';
 import { ComponentViewerComponent } from './components/component-viewer/component-viewer.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { LoginComponent } from './components/login/login.component';
-// import {AuthService} from './providers/auth.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { CustomersService } from './providers/customers.service';
-import { AddCustomerComponent } from './components/add-customer/add-customer.component';
-import { DialogComponent } from './components/dialog/dialog.component';
 import { ChecklistComponent } from './components/checklist/checklist.component';
 import { QuestionsService } from './providers/questions.service';
 import { AuthGuard } from './core/auth.guard';
+import { EditCustomerDialogComponent } from './components/dialogs/edit-customer-dialog/edit-customer-dialog.component';
+import { AddCustomerDialogComponent } from './components/dialogs/add-customer-dialog/add-customer-dialog.component';
+import { DefaultdialogComponent } from './components/dialogs/defaultdialog/defaultdialog.component';
 
 const appRoutes: Routes = [
     {
@@ -56,11 +56,6 @@ const appRoutes: Routes = [
     {
         path: 'customers',
         component: CustomersComponent,
-        canActivate: [AuthGuard]
-    },
-    {
-        path: 'customers/add-customer',
-        component: AddCustomerComponent,
         canActivate: [AuthGuard]
     },
     {
@@ -82,9 +77,10 @@ const appRoutes: Routes = [
         LoginComponent,
         DashboardComponent,
         CustomersComponent,
-        AddCustomerComponent,
-        DialogComponent,
-        ChecklistComponent
+        ChecklistComponent,
+        EditCustomerDialogComponent,
+        AddCustomerDialogComponent,
+        DefaultdialogComponent
     ],
     imports: [
         RouterModule.forRoot(
@@ -116,7 +112,7 @@ const appRoutes: Routes = [
         CoreModule
     ],
     entryComponents: [
-        DialogComponent
+        AddCustomerDialogComponent, EditCustomerDialogComponent
     ],
     providers: [CustomersService, QuestionsService, AuthGuard],
     bootstrap: [AppComponent]
