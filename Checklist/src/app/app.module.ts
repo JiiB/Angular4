@@ -112,7 +112,7 @@ const appRoutes: Routes = [
         CoreModule
     ],
     entryComponents: [
-        AddCustomerDialogComponent, EditCustomerDialogComponent
+        AddCustomerDialogComponent, EditCustomerDialogComponent, DefaultdialogComponent
     ],
     providers: [CustomersService, QuestionsService, AuthGuard],
     bootstrap: [AppComponent]

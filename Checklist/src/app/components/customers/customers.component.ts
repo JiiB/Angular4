@@ -2,10 +2,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CustomersService } from '../../providers/customers.service';
 import { Customer } from '../../models/Customer';
 import { MatDialog } from '@angular/material';
-import { DialogComponent } from '../dialog/dialog.component';
+// import { DialogComponent } from '../dialog/dialog.component';
 import { Subscription } from 'rxjs/Subscription';
 import { EditCustomerDialogComponent } from '../dialogs/edit-customer-dialog/edit-customer-dialog.component';
 import { AddCustomerDialogComponent } from '../dialogs/add-customer-dialog/add-customer-dialog.component';
+import { DefaultdialogComponent } from '../dialogs/defaultdialog/defaultdialog.component';
 
 @Component({
   selector: 'app-customers',
@@ -67,7 +68,7 @@ export class CustomersComponent implements OnInit, OnDestroy {
 
   // Delete Dialog
   openDialogDelete(customer: Customer): void {
-    const dialogRef = this.dialog.open(DialogComponent, {
+    const dialogRef = this.dialog.open(DefaultdialogComponent, {
       width: '400px',
       data: {
         title: `${customer.domain} Löschen?`,
