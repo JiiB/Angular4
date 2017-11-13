@@ -3,6 +3,7 @@ import { QuestionsService } from '../../providers/questions.service';
 import { Question } from '../../models/Question';
 import { Subscription } from 'rxjs/Subscription';
 import { AuthService } from '../../core/auth.service';
+import { Category } from '../../models/Category';
 
 
 @Component({
@@ -12,16 +13,27 @@ import { AuthService } from '../../core/auth.service';
 })
 export class ChecklistComponent implements OnInit, OnDestroy {
 questions: Question[];
-private subscription: Subscription;
+categories: Category[];
+private subscription: Subscription[] = [];
   constructor(public questionsService: QuestionsService, public auth: AuthService) {}
 
   ngOnInit() {
-    this.subscription = this.questionsService.getQuestions().subscribe(questions => {
+    this.subscription.push(this.questionsService.getQuestions().subscribe(questions => {
       this.questions = questions;
-    });
+    }));
+    this.subscription.push(this.questionsService.getCategorys().subscribe(categories => {
+      this.categories = categories;
+    }));
+  }
+
+
+  checkbox(id) {
+    console.log(`Clicked: ${id}`);
   }
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.subscription.forEach(sub => {
+      sub.unsubscribe();
+    });
   }
 
 }

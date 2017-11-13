@@ -2,5 +2,6 @@
 export interface Question {
     id?: string;
     name?: string;
-    state?: boolean;
+    ref?: {refDB?: string, refPath?: string };
 }
+
