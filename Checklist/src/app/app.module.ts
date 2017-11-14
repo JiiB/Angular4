@@ -42,6 +42,7 @@ import { AuthGuard } from './core/auth.guard';
 import { EditCustomerDialogComponent } from './components/dialogs/edit-customer-dialog/edit-customer-dialog.component';
 import { AddCustomerDialogComponent } from './components/dialogs/add-customer-dialog/add-customer-dialog.component';
 import { DefaultdialogComponent } from './components/dialogs/defaultdialog/defaultdialog.component';
+import { ChecklistService } from './providers/checklist.service';
 
 const appRoutes: Routes = [
     {
@@ -114,7 +115,7 @@ const appRoutes: Routes = [
     entryComponents: [
         AddCustomerDialogComponent, EditCustomerDialogComponent, DefaultdialogComponent
     ],
-    providers: [CustomersService, QuestionsService, AuthGuard],
+    providers: [CustomersService, QuestionsService, ChecklistService, AuthGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {

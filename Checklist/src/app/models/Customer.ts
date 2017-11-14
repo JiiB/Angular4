@@ -5,4 +5,5 @@ export interface Customer {
     domain?: string;
     date_created?: number;
     date_last_edited?: number;
+    answers?: {};
 }

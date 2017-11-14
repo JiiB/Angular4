@@ -72,7 +72,6 @@ export class CustomersComponent implements OnInit, OnDestroy {
       width: '400px',
       data: {
         title: `${customer.domain} Löschen?`,
-        customer_edit: false,
         content: `Bist du sicher? Der Kunde '${customer.name}' und die dazugehörige Checkliste wird gelöscht?`
       }
     });
