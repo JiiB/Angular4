@@ -9,22 +9,22 @@
     "start_url": "/index.html",
     "icons": [
       {
-        "src": "images/pdf-3.png",
+        "src": "/assets/images/pdf-3.png",
         "sizes": "72x72",
         "type": "image/png"
       },
-      {
-        "src": "images/pdf-2.png",
+      { 
+        "src": "/assets/images/pdf-2.png",
         "sizes": "96x96",
         "type": "image/png"
       },
       {
-        "src": "images/pdf-1.png",
+        "src": "/assets/images/pdf-1.png",
         "sizes": "128x128",
         "type": "image/png"
       },
       {
-        "src": "images/pdf-0.png",
+        "src": "/assets/images/pdf-0.png",
         "sizes": "256x256",
         "type": "image/png"
       }

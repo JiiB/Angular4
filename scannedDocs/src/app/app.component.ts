@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     this.detectUpdates();
     setInterval(() => {
 
-      if (this.data.length !== this.documents.length) {
+      if (JSON.stringify(this.data) !== JSON.stringify(this.documents)) {
         console.log('something changed!');
         this.snackBar.open('Verzeichnis wurde aktualisiert', 'Ok!', {
           duration: 3500,
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
         this.detectUpdates();
       }
 
-      console.log(this.data.length, this.documents.length);
+      this.listItems();
 
       this.detectUpdates();
     }, 2000);
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
   }
 
   listItems() {
-    console.log(this.data);
+    console.log(JSON.stringify(this.data));
   }
 
   openDialog(filename) {
@@ -66,6 +66,8 @@ export class AppComponent implements OnInit {
     });
 
     dialogRef.beforeClose().subscribe(result => {
+      this.documents.length++;
+      this.updateDOM();
       this.detectUpdates();
     });
   }
