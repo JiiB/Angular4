@@ -1,16 +1,16 @@
 <div id="dialog-md">
-  <h2 md-dialog-title>Name ändern</h2>
-  <md-dialog-content>
+  <h2 mat-dialog-title>Name ändern</h2>
+  <mat-dialog-content>
     Wähle einen neuen Namen (ohne <strong>.pdf</strong> Endung und ohne Umlaute):
     <br><br>
-        <md-form-field class="full-width">
-          <input #newDocName mdInput placeholder="{{data}}" (keyup.enter)="onConfirm(newDocName, oldDocName)">
+        <mat-form-field class="full-width">
+          <input #newDocName matInput placeholder="{{data}}" (keyup.enter)="onConfirm(newDocName, oldDocName)">
           <input #oldDocName type="hidden" value="{{data}}">
   
-        </md-form-field>
+        </mat-form-field>
       <span id="error-msg">{{error}}</span>
-  </md-dialog-content>
-  <md-dialog-actions>
-      <button md-raised-button color="primary" (click)="onConfirm(newDocName, oldDocName)">Ok</button>
-  </md-dialog-actions>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+      <button mat-raised-button color="primary" (click)="onConfirm(newDocName, oldDocName)">Ok</button>
+  </mat-dialog-actions>
 </div>

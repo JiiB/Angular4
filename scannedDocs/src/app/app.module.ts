@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {MdButtonModule, MdMenuModule, MdProgressBarModule, MdInputModule, MdTooltipModule, MdCardModule, MdDialogModule, MdToolbarModule, MdIconModule} from '@angular/material';
+// tslint:disable-next-line:max-line-length
+import {MatButtonModule, MatSnackBarModule, MatMenuModule, MatProgressBarModule, MatInputModule, MatTooltipModule, MatCardModule, MatDialogModule, MatToolbarModule, MatIconModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
@@ -16,15 +17,16 @@ import { MyDialogComponent } from './my-dialog/my-dialog.component';
   imports: [
     BrowserModule,
     HttpModule,
-    MdButtonModule, 
-    MdToolbarModule,
-    MdInputModule,
-    MdCardModule,
-    MdProgressBarModule,
-    MdTooltipModule,
-    MdDialogModule,
-    MdIconModule,
-    MdMenuModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatCardModule,
+    MatProgressBarModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatIconModule,
+    MatMenuModule,
     BrowserAnimationsModule
   ],
   entryComponents: [

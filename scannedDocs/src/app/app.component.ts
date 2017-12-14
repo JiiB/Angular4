@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ScannedDocsService} from './scanned-docs.service';
-import {MdDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 
 import { MyDialogComponent} from './my-dialog/my-dialog.component';
 
@@ -13,27 +13,54 @@ import { MyDialogComponent} from './my-dialog/my-dialog.component';
 export class AppComponent implements OnInit {
   title = 'app';
   data = [];
-  dialogResult = "";
+  private documents;
+  dialogResult = '';
 
-  constructor(private _sdS: ScannedDocsService, public dialog: MdDialog){}
-  ngOnInit(){
+  constructor(private _sdS: ScannedDocsService, public dialog: MatDialog, public snackBar: MatSnackBar) {
+    this.updateDOM();
+
+  }
+  updateDOM() {
+    this._sdS.getDocs()
+      .subscribe((resDocs) => {
+        this.data = resDocs;
+      });
+  }
+
+  ngOnInit() {
+
     this.detectUpdates();
     setInterval(() => {
+
+      if (this.data.length !== this.documents.length) {
+        console.log('something changed!');
+        this.snackBar.open('Verzeichnis wurde aktualisiert', 'Ok!', {
+          duration: 3500,
+        });
+        this.updateDOM();
+        this.detectUpdates();
+      }
+
+      console.log(this.data.length, this.documents.length);
+
       this.detectUpdates();
     }, 2000);
   }
-     
+
   detectUpdates() {
     this._sdS.getDocs()
-      .subscribe(resDocs => this.data = resDocs);
+      .subscribe((resDocs) => {
+        this.documents = resDocs;
+
+      });
   }
 
-  listItems(){
+  listItems() {
     console.log(this.data);
   }
 
-  openDialog(filename){
-    let dialogRef = this.dialog.open(MyDialogComponent, {
+  openDialog(filename) {
+    const dialogRef = this.dialog.open(MyDialogComponent, {
       width: '500px',
       data: filename.innerHTML
     });

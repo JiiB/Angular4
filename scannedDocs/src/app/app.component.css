@@ -33,7 +33,7 @@
 /* .mat-card {
     transition: 100ms;
 } */
-md-card.mat-card {
+mat-card.mat-card {
     display: flex;
     align-items: center;
     padding: 18px;

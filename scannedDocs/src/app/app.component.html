@@ -1,21 +1,21 @@
-<md-toolbar color="primary">
+<mat-toolbar color="primary">
 
-    <span (click)="detectUpdates()">Dokumente</span>
+    <span (click)="detectUpdates()">scannedDocs</span>
     <span class="spacer"></span>
     <i class="material-icons">picture_as_pdf</i>
 
 
-</md-toolbar>
+</mat-toolbar>
 
 <div class="container">
 
     <div class="item">
-        <md-card *ngFor="let item of data">
-            <a #filename mdTooltip="{{item.date}}" href="http://192.168.1.127/scan/{{item.name}}" target="_blank">{{item.name}}</a>
+        <mat-card *ngFor="let item of data">
+            <a #filename matTooltip="{{item.date}}" href="http://192.168.1.127/scan/{{item.name}}" target="_blank">{{item.name}}</a>
             <div class="spacer"></div>
-            <button md-icon-button color="primary">
-                <i mdTooltip="Name ändern" (click)="openDialog(filename)" class="material-icons">mode_edit</i>
+            <button mat-icon-button color="primary">
+                <i matTooltip="Name ändern" (click)="openDialog(filename)" class="material-icons">mode_edit</i>
             </button>
-        </md-card>
+        </mat-card>
     </div>
 </div>
