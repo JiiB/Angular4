@@ -1,15 +1,19 @@
 <agm-map [latitude]="lat" [longitude]="lng" [styles]="styles" [zoom]="15">
   <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker> -->
 </agm-map>
-<br>
-<form>
-  <div class="form-group">
-    <input #search id="city-search" name="city" [(ngModel)]="city" autocomplete="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" placeholder="Enter your City..." >
+<form class="form-inline">
+  <div id="search-wrapper" class="input-group mb-2 mr-sm-2 mb-sm-0">
+    <div class="input-group-addon">
+      <i class="material-icons">location_on</i>
+    </div>
+    <input #search id="city-search" name="city" [(ngModel)]="city" autocomplete="off" autocapitalize="off" spellcheck="off" type="text"
+      class="form-control" placeholder="Enter your City...">
   </div>
   <button (click)="getCity(city)" class="btn btn-primary">Search</button>
 </form>
-<div class="card mt-3">
-  <div class="p-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat quos provident dolor fugiat nihil amet reprehenderit veritatis repudiandae molestias cum similique cupiditate facilis hic, quo soluta, totam aliquid excepturi assumenda inventore! Deserunt, voluptas fugiat mollitia doloremque dignissimos esse aperiam provident perferendis officiis, unde dolores laboriosam asperiores eos, quam quo tempora.</div>
+<div class="mt-4 d-grid"> 
+  <div class="icon">
+    <img src="/assets/weather-icons/cloudy.svg"  alt="">
+  </div>
 </div>
 {{city}}
-
