@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { WeatherService } from '../../services/weather.service';
 import { STYLES } from './mapStyles';
 import {} from '@types/googlemaps';
 import { MapsAPILoader } from '@agm/core';
+import { WeatherData } from '../../models/weather.model';
 
 
 
@@ -14,7 +16,7 @@ import { MapsAPILoader } from '@agm/core';
 export class WeatherComponent implements OnInit {
 
   public city: string;
-  public weather;
+  public weather: WeatherData;
   public title = 'My first AGM project';
   public lat = 51.678418;
   public lng = 7.809007;
@@ -24,20 +26,21 @@ export class WeatherComponent implements OnInit {
   constructor(public ws: WeatherService, private mapsAPILoader: MapsAPILoader) { }
 
   ngOnInit() {
-    this.mapsAPILoader.load().then(() => {
-      const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
-    });
-}
+    // this.mapsAPILoader.load().then(() => {
+    //   const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
+    // });
+  }
 
+  updatePosition() {
+    this.lat = this.weather.coord.lat;
+    this.lng = this.weather.coord.lon;
+  }
 
   getCity() {
-    console.log(this.city);
-    if (this.city !== '') {
-      this.weather = this.ws.getWeather(this.city).subscribe(res => {
-        this.lat = res.coord.lat;
-        this.lng = res.coord.lon;
-        console.log(res.coord);
+      this.ws.getWeather(this.city).subscribe((data: WeatherData) => {
+        this.weather = data;
+        console.log(this.weather);
+        this.updatePosition();
       });
     }
-  }
 }

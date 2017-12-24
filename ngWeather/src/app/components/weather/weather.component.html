@@ -4,7 +4,7 @@
 <br>
 <form>
   <div class="form-group">
-    <input #search id="city-search" name="city" [(ngModel)]="city" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" placeholder="Enter your City..." >
+    <input #search id="city-search" name="city" [(ngModel)]="city" autocomplete="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" placeholder="Enter your City..." >
   </div>
   <button (click)="getCity(city)" class="btn btn-primary">Search</button>
 </form>
