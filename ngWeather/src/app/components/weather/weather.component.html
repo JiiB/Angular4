@@ -13,7 +13,10 @@
 </form>
 <div class="mt-4 d-grid"> 
   <div class="icon">
-    <img src="/assets/weather-icons/cloudy.svg"  alt="">
+    <img src="/assets/weather-icons/weather.svg"  alt="">
+    <h1>{{weather.name}}</h1>
+  <h2>Temp: {{weather.main.temp}}°C</h2>
+  <h3>Wind: {{weather.wind.speed * 3.6 | number : '1.1-1'}} km/h</h3>
   </div>
 </div>
 {{city}}

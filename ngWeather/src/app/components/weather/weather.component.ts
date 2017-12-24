@@ -29,6 +29,11 @@ export class WeatherComponent implements OnInit {
     // this.mapsAPILoader.load().then(() => {
     //   const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
     // });
+    const ls = localStorage.getItem('city');
+    if (ls !== null) {
+        this.city = ls;
+        this.getCity();
+    }
   }
 
   updatePosition() {
@@ -42,5 +47,6 @@ export class WeatherComponent implements OnInit {
         console.log(this.weather);
         this.updatePosition();
       });
+      localStorage.setItem('city', this.city);
     }
 }

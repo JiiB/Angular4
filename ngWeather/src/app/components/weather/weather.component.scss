@@ -11,10 +11,29 @@ agm-map {
 #search-wrapper {
   flex: 1;
 }
-
+img {
+  width: 680px;
+}
 .d-grid {
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  grid-template-columns: repeat(12, 1fr);
+  // display: grid;
+  // grid-template-rows: repeat(4, 1fr);
+  // grid-template-columns: repeat(12, 1fr);
+  overflow: hidden;
+
+  .icon {
+    text-align: center;
+    position: relative;
+    top: -135px;
+  }
+}
+
+// RESPONSIVE
+@media (max-width: 575px) {
+  .form-inline {
+    align-items: flex-start;
+    #search-wrapper {
+      margin-right: 5px;
+    }
+  }
 }
 
