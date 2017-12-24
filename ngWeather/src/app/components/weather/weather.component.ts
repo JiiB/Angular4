@@ -31,6 +31,7 @@ export class WeatherComponent implements OnInit {
 
 
   getCity() {
+    console.log(this.city);
     if (this.city !== '') {
       this.weather = this.ws.getWeather(this.city).subscribe(res => {
         this.lat = res.coord.lat;

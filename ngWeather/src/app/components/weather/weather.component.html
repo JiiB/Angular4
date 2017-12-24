@@ -1,4 +1,4 @@
-<agm-map [latitude]="lat" [longitude]="lng" [styles]="styles">
+<agm-map [latitude]="lat" [longitude]="lng" [styles]="styles" [zoom]="15">
   <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker> -->
 </agm-map>
 <br>
@@ -8,6 +8,8 @@
   </div>
   <button (click)="getCity(city)" class="btn btn-primary">Search</button>
 </form>
-
+<div class="card mt-3">
+  <div class="p-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat quos provident dolor fugiat nihil amet reprehenderit veritatis repudiandae molestias cum similique cupiditate facilis hic, quo soluta, totam aliquid excepturi assumenda inventore! Deserunt, voluptas fugiat mollitia doloremque dignissimos esse aperiam provident perferendis officiis, unde dolores laboriosam asperiores eos, quam quo tempora.</div>
+</div>
 {{city}}
 
