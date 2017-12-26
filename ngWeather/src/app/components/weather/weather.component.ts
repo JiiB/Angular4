@@ -17,7 +17,7 @@ export class WeatherComponent implements OnInit {
 
   public city: string;
   public weather: WeatherData;
-  public title = 'My first AGM project';
+  public weatherImg = 'weather.svg';
   public lat = 51.678418;
   public lng = 7.809007;
   public styles = STYLES;
@@ -44,9 +44,38 @@ export class WeatherComponent implements OnInit {
   getCity() {
       this.ws.getWeather(this.city).subscribe((data: WeatherData) => {
         this.weather = data;
-        console.log(this.weather);
+        console.log(this.weather.weather[0].id);
         this.updatePosition();
       });
       localStorage.setItem('city', this.city);
+      switch (this.weather.weather[0].id) {
+        case 200 || 201 || 202 || 210 || 211 || 212 || 221 || 230 || 231 || 232:
+          this.weatherImg = 'thunder.svg';
+          break;
+        case 300 || 301 || 310 || 311 || 313:
+          this.weatherImg = 'rainy-2.svg';
+          break;
+        case 302 || 312 || 314:
+          this.weatherImg = 'rainy-3.svg';
+          break;
+        case 321:
+          this.weatherImg = 'rainy-6.svg';
+          break;
+        case 801:
+          this.weatherImg = 'cloudy-day-1.svg';
+          break;
+        case 802:
+          this.weatherImg = 'cloudy-day-2.svg';
+          break;
+        case 801:
+          this.weatherImg = 'cloudy-day-1.svg';
+          break;
+        case 803:
+          this.weatherImg = 'cloudy.svg';
+          break;
+      
+        default:
+          break;
+      }
     }
 }

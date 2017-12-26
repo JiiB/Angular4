@@ -12,18 +12,18 @@ agm-map {
   flex: 1;
 }
 img {
-  width: 680px;
+  width: 380px;
 }
 .d-grid {
   // display: grid;
   // grid-template-rows: repeat(4, 1fr);
   // grid-template-columns: repeat(12, 1fr);
-  overflow: hidden;
+  overflow-x: hidden;
 
   .icon {
     text-align: center;
     position: relative;
-    top: -135px;
+    top: -65px;
   }
 }
 

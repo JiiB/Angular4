@@ -1,7 +1,7 @@
 <agm-map [latitude]="lat" [longitude]="lng" [styles]="styles" [zoom]="15">
   <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker> -->
 </agm-map>
-<form class="form-inline">
+<form class="form-inline" ngSubmit="getCity()">
   <div id="search-wrapper" class="input-group mb-2 mr-sm-2 mb-sm-0">
     <div class="input-group-addon">
       <i class="material-icons">location_on</i>
@@ -9,14 +9,23 @@
     <input #search id="city-search" name="city" [(ngModel)]="city" autocomplete="off" autocapitalize="off" spellcheck="off" type="text"
       class="form-control" placeholder="Enter your City...">
   </div>
-  <button (click)="getCity(city)" class="btn btn-primary">Search</button>
+  <button (click)="getCity()" class="btn btn-primary">Search</button>
 </form>
 <div class="mt-4 d-grid"> 
   <div class="icon">
-    <img src="/assets/weather-icons/weather.svg"  alt="">
-    <h1>{{weather.name}}</h1>
-  <h2>Temp: {{weather.main.temp}}°C</h2>
-  <h3>Wind: {{weather.wind.speed * 3.6 | number : '1.1-1'}} km/h</h3>
+    <img src="/assets/weather-icons/{{weatherImg}}"  alt="">
+    
+    
+    <div>
+      <h1>{{weather.name}}</h1>
+      <h2>Temp: {{weather.main.temp}}°C</h2>
+      <h3>Wind: {{weather.wind.speed * 3.6 | number : '1.1-1'}} km/h</h3>
+    </div>
+    <div>weatherimg: {{weatherImg}}</div>
+
+
+
+    
   </div>
 </div>
 {{city}}
