@@ -32,6 +32,7 @@ export class WeatherComponent implements OnInit {
     const ls = localStorage.getItem('city');
     if (ls !== null) {
       this.city = ls;
+      console.log('city: ' + this.city);
       this.getCity();
     }
   }
@@ -42,6 +43,7 @@ export class WeatherComponent implements OnInit {
   }
 
   getCity() {
+    console.log('getcity: ' + this.city);
     this.ws.getWeather(this.city).subscribe((data: WeatherData) => {
       this.weather = data;
       console.log(this.weather.weather[0].id);
