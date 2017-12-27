@@ -73,7 +73,7 @@ export class WeatherComponent implements OnInit {
         case 803:
           this.weatherImg = 'cloudy.svg';
           break;
-      
+          
         default:
           break;
       }
