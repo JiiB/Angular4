@@ -1,24 +1,24 @@
 export interface WeatherData {
     coord: {
-        lon: number,
-        lat: number
+        lon?: number,
+        lat?: number
     };
-    weather: [
+    weather?: [
         {
-            id: number,
-            main: string
+            id?: number,
+            main?: string
         }
     ];
-    main: {
-        temp: number,
-        pressure: number,
-        humidity: number,
-        temp_min: number,
-        temp_max: number
+    main?: {
+        temp?: number,
+        pressure?: number,
+        humidity?: number,
+        temp_min?: number,
+        temp_max?: number
     };
-    wind: {
-        speed: number
+    wind?: {
+        speed?: number
     };
-    name: string;
+    name?: string;
 
 }

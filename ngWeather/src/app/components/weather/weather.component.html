@@ -11,7 +11,7 @@
   </div>
   <button (click)="getCity()" class="btn btn-primary">Search</button>
 </form>
-<div class="mt-4 d-grid"> 
+<div class="mt-4 d-grid"  *ngIf="weather !== undefined; else noData"> 
   <div class="icon">
     <img src="/assets/weather-icons/{{weatherImg}}"  alt="">
     
@@ -21,11 +21,13 @@
       <h2>Temp: {{weather.main.temp}}°C</h2>
       <h3>Wind: {{weather.wind.speed * 3.6 | number : '1.1-1'}} km/h</h3>
     </div>
-    <div>weatherimg: {{weatherImg}}</div>
 
-
-
+    
     
   </div>
 </div>
-city: {{city}}
+<ng-template #noData>
+    <section class="text-center m-4">
+      <p>Choose your City</p>
+    </section>
+</ng-template>
