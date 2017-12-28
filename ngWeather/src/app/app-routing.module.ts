@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { WeatherComponent } from './components/weather/weather.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'weather', pathMatch: 'full'},
-  {path: 'weather', component: WeatherComponent}
+  // {path: '', redirectTo: 'weather', pathMatch: 'full'},
+  {path: '', component: WeatherComponent}
 ];
 
 @NgModule({

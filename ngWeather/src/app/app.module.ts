@@ -33,4 +33,4 @@ import { WeatherService } from './services/weather.service';
   providers: [WeatherService],
   bootstrap: [AppComponent]
 })
-export class AppModule { } 
+export class AppModule { }
