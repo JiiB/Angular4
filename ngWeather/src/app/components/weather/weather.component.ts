@@ -21,11 +21,15 @@ export class WeatherComponent implements OnInit, OnDestroy {
   public weatherImg = '';
   public lat = 51.678418;
   public lng = 7.809007;
+  public date: number;
   private subscription: Subscription;
   public styles = STYLES;
   @ViewChild('search')
   public searchElementRef: ElementRef;
-  constructor(public ws: WeatherService, private mapsAPILoader: MapsAPILoader) { }
+  constructor(public ws: WeatherService, private mapsAPILoader: MapsAPILoader) { 
+
+  this.date = Date.now();
+  }
 
   ngOnInit() {
     // this.mapsAPILoader.load().then(() => {

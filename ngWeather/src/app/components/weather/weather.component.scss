@@ -8,22 +8,33 @@ agm-map {
   pointer-events: none;
 }
 
+h1 {
+  small {
+    display: block;
+    font-size: 20px;
+    font-weight: 100;
+  }
+}
+
+.img-wrapper {
+  height: 333px;
+  overflow: hidden;
+}
+
 #search-wrapper {
   flex: 1;
 }
+
 img {
   width: 380px;
 }
-.d-grid {
-  // display: grid;
-  // grid-template-rows: repeat(4, 1fr);
-  // grid-template-columns: repeat(12, 1fr);
-  overflow-x: hidden;
 
+.weather-data {
+  overflow-x: hidden;
   .icon {
     text-align: center;
     position: relative;
-    top: -65px;
+    top: -65px; 
   }
 }
 
@@ -37,3 +48,19 @@ img {
   }
 }
 
+@media (max-height: 705px) {
+  .img-wrapper {
+    height: 255px;
+  }
+  img {
+    width: 280px;
+  }
+  .icon {
+    top: -45px !important;
+  }
+}
+@media (max-width: 320px) {
+  .icon {
+    top: -65px !important;
+  }
+}
