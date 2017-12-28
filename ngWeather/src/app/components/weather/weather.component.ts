@@ -127,7 +127,7 @@ export class WeatherComponent implements OnInit, OnDestroy {
         case 962:
         case 803:
         case 804:
-          this.weatherImg = 'cloudy.svg';
+          this.weatherImg = 'cloud.png';
           break;
         case 800:
           this.weatherImg = 'day.svg';

@@ -6,8 +6,7 @@
     "resources": {
       "files": [
         "/favicon.ico",
-        "/index.html",
-        "/manifest.json"
+        "/index.html"
       ],
       "versionedFiles": [
         "/*.bundle.css",
@@ -21,7 +20,8 @@
     "updateMode": "prefetch",
     "resources": {
       "files": [
-        "/assets/**"
+        "/assets/**", 
+        "/assets/weather-icons/cloudy.svg"
       ]
     }
   }]
