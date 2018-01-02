@@ -46,6 +46,9 @@ export class WeatherComponent implements OnInit, OnDestroy {
     this.lat = this.weather.coord.lat;
     this.lng = this.weather.coord.lon;
   }
+  selectText() {
+    this.searchElementRef.nativeElement.select();
+  }
 
   getCity() {
     this.subscription = this.ws.getWeather(this.city).subscribe((data: WeatherData) => {
