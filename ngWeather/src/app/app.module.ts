@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { ServiceWorkerModule } from '@angular/service-worker';
+// import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 
@@ -27,8 +27,8 @@ import { WeatherService } from './services/weather.service';
       apiKey: 'AIzaSyAu_ecgGd-j73ue_VWxh3_GSjed9zqdx8g',
       libraries: ['places']
     }),
-    AppRoutingModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    AppRoutingModule
+    // ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]
