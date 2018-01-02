@@ -1,7 +1,7 @@
 <agm-map [latitude]="lat" [longitude]="lng" [styles]="styles" [zoom]="15">
   <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker> -->
 </agm-map>
-<form class="form-inline" ngSubmit="getCity()">
+  <form class="form-inline" ngSubmit="getCity()"  [ngClass]="{invalid: error}">
   <div id="search-wrapper" class="input-group mb-2 mr-sm-2 mb-sm-0">
     <div class="input-group-addon">
       <i class="material-icons">location_on</i>
@@ -11,22 +11,18 @@
   </div>
   <button (click)="getCity()" class="btn btn-primary">Search</button>
 </form>
-<div class="weather-data" *ngIf="weather !== undefined; else noData">
+<div class="weather-data" *ngIf="weather !== undefined && !error; else noData">
   <div class="icon">
     <div class="img-wrapper">
       <img src="/assets/weather-icons/{{weatherImg}}" alt="">
     </div>
 
-
-    <div>
       <h1>{{weather.name}}
         <small>{{date | date: 'dd.MM.yyyy hh:mm'}}</small>
       </h1>
       <h2>Temp: {{weather.main.temp}}°C</h2>
       <h3>Weather: {{weather.weather[0].description}}</h3>
       <h3>Wind: {{weather.wind.speed * 3.6 | number : '1.1-1'}} km/h</h3>
-    </div>
-
 
 
   </div>
@@ -34,6 +30,7 @@
 <ng-template #noData>
   <section class="text-center m-4">
     <p>Choose your City</p>
+    <p *ngIf="error">Could not get weatherdata for this city. <br>
+      Check if you have an <strong>active</strong> internet connection. Please try again.</p>
   </section>
 </ng-template>
-

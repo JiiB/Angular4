@@ -8,6 +8,12 @@ agm-map {
   pointer-events: none;
 }
 
+.invalid {
+  .form-control {
+    border-color: #dc3545;
+  }
+}
+
 h1 {
   small {
     display: block;

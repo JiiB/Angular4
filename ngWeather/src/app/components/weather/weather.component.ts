@@ -22,13 +22,13 @@ export class WeatherComponent implements OnInit, OnDestroy {
   public lat = 51.678418;
   public lng = 7.809007;
   public date: number;
+  public error = false;
   private subscription: Subscription;
   public styles = STYLES;
   @ViewChild('search')
   public searchElementRef: ElementRef;
-  constructor(public ws: WeatherService, private mapsAPILoader: MapsAPILoader) { 
-
-  this.date = Date.now();
+  constructor(public ws: WeatherService, private mapsAPILoader: MapsAPILoader) {
+    this.date = Date.now();
   }
 
   ngOnInit() {
@@ -50,7 +50,7 @@ export class WeatherComponent implements OnInit, OnDestroy {
   getCity() {
     this.subscription = this.ws.getWeather(this.city).subscribe((data: WeatherData) => {
       this.weather = data;
-      console.log(this.weather);
+      this.error = false;
       this.updatePosition();
       switch (this.weather.weather[0].id) {
         case 300:
@@ -127,7 +127,7 @@ export class WeatherComponent implements OnInit, OnDestroy {
         case 962:
         case 803:
         case 804:
-          this.weatherImg = 'cloud.png';
+          this.weatherImg = 'cloudy.svg';
           break;
         case 800:
           this.weatherImg = 'day.svg';
@@ -164,7 +164,12 @@ export class WeatherComponent implements OnInit, OnDestroy {
         default:
           break;
       }
-    });
+    },
+    err => {
+      console.log(err);
+      this.error = true;
+    }
+  );
     localStorage.setItem('city', this.city);
   }
 

@@ -14,15 +14,6 @@
         "/*.chunk.js"
       ]
     }
-  }, {
-    "name": "assets",
-    "installMode": "lazy",
-    "updateMode": "prefetch",
-    "resources": {
-      "files": [
-        "/assets/**", 
-        "/assets/weather-icons/cloudy.svg"
-      ]
-    }
-  }]
+  } 
+]
 }
