@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+app-root {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+md-toolbar.mat-toolbar {
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+    position: relative;
+    z-index: 10;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+#logo {
+    margin-right: 9px;
+}
+
+@media (max-width: 799px) {
+    .mat-drawer-content {
+        margin-left: 0px !important;
+    }
+    #logo {
+        display: none;
+    }
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-center .mat-spinner {
+    margin: auto
+}
+
+.spacer {
+    display: flex;
+    flex: 1;
+}
+
+.full-width {
+    width: 100%;
+}
