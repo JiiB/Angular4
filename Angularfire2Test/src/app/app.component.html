@@ -1,0 +1,10 @@
+<div class="container mt-4">
+  <h1>List of Books</h1>
+  <div class="card mb-2" *ngFor="let book of books" style="width: 18rem;">
+    <div class="card-body">
+      <h5>{{book.name}}</h5>
+      <p><strong>Author: </strong>{{book.author}} <br>
+        <strong>Release Date: </strong>{{book.release | date:'dd.MM.yyyy'}}</p>
+    </div>
+  </div>
+</div>
