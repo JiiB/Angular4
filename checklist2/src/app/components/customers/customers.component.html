@@ -1,3 +1,36 @@
-<p>
-  customers works!
-</p>
+<a mat-raised-button color="primary" matTooltip="neuer Kunde erfassen" (click)="openDialogAdd()">Kunde hinzufügen</a>
+<br><br>
+<div *ngIf="customers?.length > 0; else noCustomers">
+    <mat-expansion-panel *ngFor="let customer of customers">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{customer.name}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{customer.domain}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="btn-wrap">
+            <a mat-raised-button color="primary" [routerLink]="['/checklist/' + customer.id]">zur Checkliste</a>
+            <button mat-raised-button>
+                <mat-icon aria-label="add person">person_add</mat-icon> Prüfer einladen
+            </button>
+            <div class="spacer"></div>
+
+            <button mat-raised-button (click)="openDialogEdit(customer)">
+                <mat-icon aria-label="edit">edit</mat-icon> Bearbeiten
+            </button>
+            <button mat-raised-button color="warn" (click)="openDialogDelete(customer)" matTooltip="Kunde und Checkliste löschen">
+                <mat-icon aria-label="delete">delete</mat-icon> Löschen
+            </button>
+        </div>
+    </mat-expansion-panel>
+</div>
+
+<ng-template #noCustomers>
+    <div class="text-center">
+        <mat-spinner [diameter]="40" strokeWidth="5"></mat-spinner>
+        <h4>Lade Kundenliste</h4>
+    </div>
+</ng-template>

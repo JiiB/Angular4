@@ -1,0 +1,9 @@
+.mat-expansion-panel-header-description,
+.mat-expansion-panel-header-title {
+    flex-basis: 0px;
+}
+
+.btn-wrap {
+    display: flex;
+    margin: 5px 5px 18px 5px;
+}

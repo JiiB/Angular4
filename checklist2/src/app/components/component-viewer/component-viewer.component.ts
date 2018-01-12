@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-component-viewer',
   templateUrl: './component-viewer.component.html',
   styleUrls: ['./component-viewer.component.css']
 })
-export class ComponentViewerComponent implements OnInit {
+export class ComponentViewerComponent  {
 
-  constructor() { }
+  constructor( private authService: AuthService) {
 
-  ngOnInit() {
   }
+
+
+
 
 }
