@@ -18,9 +18,13 @@ export class AddCustomerDialogComponent {
     // this.customer = this.data.customer;
   }
 
-  saveAddCustomer() {
+  saveAddCustomer(state) {
     // TODO validate
-    this.DialogRef.close(this.customer);
+    if (state) {
+      this.DialogRef.close(this.customer);
+    } else {
+      this.DialogRef.close(false);
+    }
   }
 
 }

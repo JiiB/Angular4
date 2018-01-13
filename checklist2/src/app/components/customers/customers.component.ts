@@ -44,12 +44,16 @@ export class CustomersComponent implements OnInit, OnDestroy {
 
     dialogRef.afterClosed().subscribe(result => {
       // TODO: Validate the user input
-      this.customerService.addCustomer(result);
+      if (result === false || result === undefined) {
+        // TODO: set the value back to inital state, if the chages do not get saved
+      } else {
+        this.customerService.addCustomer(result);
+      }
     });
   }
 
   // Edit Dialog
-  openDialogEdit(customer: Customer): void {
+  openDialogEdit(customer: Customer, i): void {
     const dialogRef = this.dialog.open(EditCustomerDialogComponent, {
       width: '400px',
       data: {
@@ -60,9 +64,12 @@ export class CustomersComponent implements OnInit, OnDestroy {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       // TODO: Validate the user input
-      this.customerService.updateCustomer(customer);
+      if (result === false || result === undefined) {
+        // TODO: set the value back to inital state, if the chages do not get saved
+      } else {
+        this.customerService.updateCustomer(customer);
+      }
     });
   }
 

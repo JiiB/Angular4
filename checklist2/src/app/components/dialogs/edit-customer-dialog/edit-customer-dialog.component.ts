@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { Customer } from '../../../models/Customer';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-edit-customer-dialog',
@@ -12,8 +12,12 @@ export class EditCustomerDialogComponent {
   constructor(public DialogRef: MatDialogRef<EditCustomerDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
     this.customer = this.data.customer;
   }
-  saveEditCustomer() {
-    this.DialogRef.close(this.customer);
+  saveEditCustomer(state) {
+    if (state) {
+      this.DialogRef.close(this.customer);
+    } else {
+      this.DialogRef.close(false);
+    }
   }
 
 }

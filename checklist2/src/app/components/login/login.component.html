@@ -17,6 +17,7 @@
           <h3>Howdy, {{ user.displayName }}</h3>
           <img width="100" [src]="user.photoURL">
           <p>UID: {{ user.uid }}</p>
+          <p>Letzer Login: {{ user.lastSignInTime | date:'dd.MM.yyyy hh:mm' }}Uhr</p>
           <button mat-raised-button color="warn" (click)="auth.signOut()">Logout</button>
       </div>
   </ng-template>

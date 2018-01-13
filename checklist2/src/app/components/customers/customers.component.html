@@ -1,7 +1,7 @@
 <a mat-raised-button color="primary" matTooltip="neuer Kunde erfassen" (click)="openDialogAdd()">Kunde hinzufügen</a>
 <br><br>
 <div *ngIf="customers?.length > 0; else noCustomers">
-    <mat-expansion-panel *ngFor="let customer of customers">
+    <mat-expansion-panel *ngFor="let customer of customers; let i = index">
         <mat-expansion-panel-header>
             <mat-panel-title>
                 {{customer.name}}
@@ -18,7 +18,7 @@
             </button>
             <div class="spacer"></div>
 
-            <button mat-raised-button (click)="openDialogEdit(customer)">
+            <button mat-raised-button (click)="openDialogEdit(customer, i)">
                 <mat-icon aria-label="edit">edit</mat-icon> Bearbeiten
             </button>
             <button mat-raised-button color="warn" (click)="openDialogDelete(customer)" matTooltip="Kunde und Checkliste löschen">

@@ -17,7 +17,7 @@
       </div>
   </mat-dialog-content>
   <mat-dialog-actions>
-      <button mat-raised-button (click)="saveAddCustomer()">Ok</button>
-      <button mat-raised-button color="warn" mat-dialog-close>Abbrechen</button>
+      <button mat-raised-button (click)="saveAddCustomer(true)">Ok</button>
+      <button mat-raised-button color="warn" (click)="saveAddCustomer(false)">Abbrechen</button>
   </mat-dialog-actions>
 </div>
