@@ -10,7 +10,7 @@ export class CustomersService {
   customersCollection: AngularFirestoreCollection<Customer>;
   customers: Observable<Customer[]>;
   // Test for stateChanges()
-  customersTest: Observable<Customer[]>;
+  customer: Observable<Customer>;
   customerDoc: AngularFirestoreDocument<Customer>;
   constructor(public afs: AngularFirestore, public router: Router, public snackBar: MatSnackBar) {
 
@@ -28,18 +28,15 @@ export class CustomersService {
 
     // ----
 
-    this.customersTest = this.customersCollection.stateChanges(['added'])
-    .map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Customer;
-        const id = a.payload.doc.id;
-        return { id, ...data };
-      });
-    });
+    // this.customer
   }
 
   getCustomers() {
     return this.customers;
+  }
+
+  getCustomer(id) {
+    return this.afs.doc(`Customers/${id}`).valueChanges();
   }
 
   addCustomer(customer: Customer) {

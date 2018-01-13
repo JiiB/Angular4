@@ -15,21 +15,22 @@ import { DefaultdialogComponent } from '../dialogs/defaultdialog/defaultdialog.c
 })
 export class CustomersComponent implements OnInit, OnDestroy {
   customers: Customer[];
-  private subscription: Subscription;
+  private subscription: Subscription[] = [];
   constructor(private customerService: CustomersService, public dialog: MatDialog) {
 
     // alert("jklfasd");
   }
 
   ngOnInit() {
-    this.subscription = this.customerService.getCustomers().subscribe(customers => {
+    this.subscription.push(this.customerService.getCustomers().subscribe(customers => {
       this.customers = customers;
-    });
+    }));
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
-    // alert("left component");
+    this.subscription.forEach(sub => {
+      sub.unsubscribe();
+    });
   }
 
   // add Dialog
@@ -42,14 +43,14 @@ export class CustomersComponent implements OnInit, OnDestroy {
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    this.subscription.push(dialogRef.afterClosed().subscribe(result => {
       // TODO: Validate the user input
       if (result === false || result === undefined) {
         // TODO: set the value back to inital state, if the chages do not get saved
       } else {
         this.customerService.addCustomer(result);
       }
-    });
+    }));
   }
 
   // Edit Dialog
@@ -63,14 +64,14 @@ export class CustomersComponent implements OnInit, OnDestroy {
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    this.subscription.push(dialogRef.afterClosed().subscribe(result => {
       // TODO: Validate the user input
       if (result === false || result === undefined) {
         // TODO: set the value back to inital state, if the chages do not get saved
       } else {
         this.customerService.updateCustomer(customer);
       }
-    });
+    }));
   }
 
   // Delete Dialog
@@ -83,12 +84,12 @@ export class CustomersComponent implements OnInit, OnDestroy {
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    this.subscription.push(dialogRef.afterClosed().subscribe(result => {
       console.log(`The dialog was closed ${result}`);
       if (result === true) {
         this.customerService.deleteCustomer(customer);
       }
-    });
+    }));
   }
 
 
