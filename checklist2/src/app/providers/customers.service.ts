@@ -50,10 +50,10 @@ export class CustomersService {
     // this.customersCollection.add(customer).then(res => (this.router.navigate(['/customers'])));
   }
 
-  updateCustomer(customer: Customer) {
+  updateCustomer(customer: Customer, prevInfo: Customer) {
     this.customerDoc = this.afs.doc(`Customers/${customer.id}`);
     this.customerDoc.update(customer).then(() => {
-      this.snackBar.open(`Der Kunde ${customer.name} wurde bearbeitet!`, '', {
+      this.snackBar.open(`Der Kunde ${prevInfo.name} wurde bearbeitet!`, '', {
         duration: 2500
       });
     });

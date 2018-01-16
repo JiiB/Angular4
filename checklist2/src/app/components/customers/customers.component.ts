@@ -55,6 +55,7 @@ export class CustomersComponent implements OnInit, OnDestroy {
 
   // Edit Dialog
   openDialogEdit(customer: Customer, i): void {
+    const prevInfo = Object.assign({}, customer); 
     const dialogRef = this.dialog.open(EditCustomerDialogComponent, {
       width: '400px',
       data: {
@@ -68,8 +69,10 @@ export class CustomersComponent implements OnInit, OnDestroy {
       // TODO: Validate the user input
       if (result === false || result === undefined) {
         // TODO: set the value back to inital state, if the chages do not get saved
+        customer.name = prevInfo.name;
+        customer.domain = prevInfo.domain;
       } else {
-        this.customerService.updateCustomer(customer);
+        this.customerService.updateCustomer(customer, prevInfo);
       }
     }));
   }
