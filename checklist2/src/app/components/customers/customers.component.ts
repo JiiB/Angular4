@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CustomersService } from '../../providers/customers.service';
 import { Customer } from '../../models/Customer';
 import { MatDialog } from '@angular/material';
-// import { DialogComponent } from '../dialog/dialog.component';
 import { Subscription } from 'rxjs/Subscription';
 import { EditCustomerDialogComponent } from '../dialogs/edit-customer-dialog/edit-customer-dialog.component';
 import { AddCustomerDialogComponent } from '../dialogs/add-customer-dialog/add-customer-dialog.component';

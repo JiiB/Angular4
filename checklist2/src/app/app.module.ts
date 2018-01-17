@@ -13,7 +13,9 @@ import {
   MatProgressBarModule,
   MatAutocompleteModule,
   MatRadioModule,
+  MatSelectModule,
   MatInputModule,
+  MatMenuModule,
   MatExpansionModule,
   MatToolbarModule,
   MatDialogModule,
@@ -44,6 +46,8 @@ import { EditCustomerDialogComponent } from './components/dialogs/edit-customer-
 import { AddCustomerDialogComponent } from './components/dialogs/add-customer-dialog/add-customer-dialog.component';
 import { DefaultdialogComponent } from './components/dialogs/defaultdialog/defaultdialog.component';
 import { ChecklistService } from './providers/checklist.service';
+import { SettingsComponent } from './components/settings/settings.component';
+import { HeaderToolbarComponent } from './components/header-toolbar/header-toolbar.component';
 
 
 @NgModule({
@@ -57,7 +61,9 @@ import { ChecklistService } from './providers/checklist.service';
     ChecklistComponent,
     EditCustomerDialogComponent,
     AddCustomerDialogComponent,
-    DefaultdialogComponent
+    DefaultdialogComponent,
+    SettingsComponent,
+    HeaderToolbarComponent
   ],
   imports: [
     AppRoutingModule,
@@ -67,6 +73,8 @@ import { ChecklistService } from './providers/checklist.service';
     MatIconModule,
     MatToolbarModule,
     MatDialogModule,
+    MatSelectModule,
+    MatMenuModule,
     MatRadioModule,
     MatTooltipModule,
     MatProgressBarModule,

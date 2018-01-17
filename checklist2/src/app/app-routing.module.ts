@@ -5,6 +5,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './core/auth.guard';
 import { CustomersComponent } from './components/customers/customers.component';
 import { ChecklistComponent } from './components/checklist/checklist.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
   {
       path: 'customers',
       component: CustomersComponent,
+      canActivate: [AuthGuard]
+  },
+  {
+      path: 'settings',
+      component: SettingsComponent,
       canActivate: [AuthGuard]
   },
   {

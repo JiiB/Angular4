@@ -42,14 +42,6 @@ md-sidenav button {
     bottom: 10px;
 }
 
-md-toolbar img {
-    margin-right: 10px;
-}
-
-mat-toolbar.mat-toolbar.mat-primary {
-    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
-    z-index: 2;
-}
 
 .docs-component-viewer-sidenav {
     padding-bottom: 72px;
@@ -81,18 +73,6 @@ app-page-header {
     color: rgba(255, 255, 255, .87);
 }
 
-md-toolbar img {
-    display: none;
-}
-
-@media (min-width: 800px) {
-    #menu-btn-toolbar {
-        display: none;
-    }
-    md-toolbar img {
-        display: block;
-    }
-}
 
 .spacer {
     flex: 1;
@@ -139,7 +119,3 @@ md-toolbar img {
     color: #3f51b5;
 }
 
-#profile-img {
-    width: 40px;
-    border-radius: 50%;
-}

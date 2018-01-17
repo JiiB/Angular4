@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" (window:resize)="onResize($event)">
+  <button id="menu-btn-toolbar" mat-icon-button (click)="sidenav.toggle()">
+  <mat-icon class="mat-24" aria-label="Hamburger Menu icon">menu</mat-icon>
+</button>
+  <img id="logo" src="/assets/img/logo.png" width="22" alt=""> <span>Checklist</span>
+  <div class="spacer"></div>
+  <img [matMenuTriggerFor]="menu" id="profile-img" src="{{user.photoURL}}" title="{{user.displayName}}" *ngIf="auth.user | async as user" />
+  <button mat-button (click)="auth.googleLogin()">ANMELDEN</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>Mein Profil</span>
+    </button>
+    <button mat-menu-item routerLink="/settings">
+      <mat-icon>settings</mat-icon>
+      <span>Einstellungen</span>
+    </button>
+    <button mat-menu-item (click)="auth.signOut()">
+      <mat-icon>lock</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
